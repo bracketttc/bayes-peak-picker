@@ -1,2 +1,9 @@
-build
+# Typical CMake build directory
+/build
+
+# Doxygen-generated documentation
+/doc
+
+# Temporary files
 *~
+.*.swp

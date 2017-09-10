@@ -1,0 +1,7 @@
+[submodule "deps/eigen"]
+	path = deps/eigen
+	url = git@github.com:Rlovelett/eigen.git
+	branch = 3.3.4
+[submodule "cmake"]
+	path = cmake
+	url = git@github.com:bracketttc/cmake-modules.git
