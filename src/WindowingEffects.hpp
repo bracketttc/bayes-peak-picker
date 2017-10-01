@@ -25,8 +25,18 @@ class WindowingEffects
 {
     static_assert( std::is_arithmetic< T >::value,
                    "Template parameter T must be an arithmetic type." );
+#ifndef WIN32
     static_assert( UP && std::log2( UP ) == std::floor( std::log2( UP ) ),
-                   "Template parameter UP must be a multiple of 2." );
+                   "Template parameter UP must be a power of 2." );
+#else
+    // At time of writing, the MS implementation of the standard C libraries
+    // does not include constexpr versions of the functions used in the
+    // expression above, so we have to go the low-tech route. If you want to
+    // enable UP factor values > 64, they can be added to this boolean
+    // expression.
+    static_assert( UP == 2 || UP == 4 || UP == 8 || UP == 16 || UP == 32 || UP == 64,
+                   "Template parameter UP must be a power of 2." );
+#endif // WIN32
 public:
     WindowingEffects() = delete;
 

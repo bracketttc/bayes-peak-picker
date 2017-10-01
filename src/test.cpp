@@ -3,7 +3,7 @@
 
 #include "WindowingEffects.hpp"
 
-int main( int argc, char** argv )
+int main( int, char** )
 {
     std::vector< float > ones( 256, 1 );
 
